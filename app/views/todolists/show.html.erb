@@ -1,0 +1,15 @@
+<%= flash_messages %>
+<h2>Todolist</h2>
+
+<p>
+  <strong>Name:</strong>
+  <%= @todolist.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  	$<%= @todolist.price %>
+</p>
+
+<%= link_to 'Edit', edit_todolist_path(@todolist), class: "btn btn-warning" %>
+<%= link_to "Back", todolists_path, class: "btn btn-default" %>

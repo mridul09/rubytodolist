@@ -1,0 +1,34 @@
+<%= flash_messages %>
+
+<h2>Todolists List</h2>
+<div class="todolist-block">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th class="col-md-2">Name</th>
+        <th class="col-md-2">Price</th>
+        <th class="col-md-2">Creator</th>
+        <th class="col-md-4">Options</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @todolists.each do |todolist| %>
+        <tr>
+          <td class="col-md-2"><%= todolist.name %></td>
+          <td></td>
+          <td class="col-md-2"><%= todolist.user.try(:email) %></td>
+          <td class="col-md-4">
+            <%= link_to 'Show', todolist_path(todolist), class: "btn btn-info" %>
+            <%= link_to 'Edit', edit_todolist_path(todolist), class: "btn  btn-warning" %>
+            <%= link_to 'Destroy', todolist_path(todolist), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'New Todolist', new_todolist_path, class: "btn btn-primary" %>
