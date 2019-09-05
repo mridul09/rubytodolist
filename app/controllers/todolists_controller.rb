@@ -5,6 +5,18 @@ class TodolistsController < ApplicationController
   
   def index
     @todolists = Todolist.all
+    @users = User.all
+    @hash_new = {}
+    @hash_inProg = {}
+    @users.each do |key, value |
+      if key.todolists.empty?
+       @hash_new[key] = []
+       @hash_inProg[key] = []
+      else
+        @hash_new[key] = key.todolists.collect{|i| i.status == 'New'? i.name : [] }.flatten
+        @hash_inProg[key] = key.todolists.collect{|i| i.status == 'InProgress'? i.name : [] }.flatten
+      end
+    end
   end
 
   def show
@@ -19,9 +31,9 @@ class TodolistsController < ApplicationController
 
   def create
     @todolist = Todolist.new(todolist_params)
-    @todolist.user = current_user
+    @todolist.user = User.assigned_dev(params[:todolist].dig(:user_id))
     if @todolist.save
-      redirect_to @todolist, notice: 'Todolist was successfully created.'
+      redirect_to todolists_url, notice: 'Todolist was successfully created.'
     else
       render :new
     end
@@ -46,6 +58,6 @@ class TodolistsController < ApplicationController
   end
 
   def todolist_params
-    params.require(:todolist).permit(:name, :price)
+    params.require(:todolist).permit(:name, :status)
   end
 end

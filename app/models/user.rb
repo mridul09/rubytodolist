@@ -10,5 +10,9 @@ class User < ActiveRecord::Base
 
   def client?
     has_role?(:client)
-  end 
+  end
+
+  def self.assigned_dev(id)
+    find(id)
+  end
 end

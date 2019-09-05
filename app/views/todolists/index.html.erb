@@ -1,34 +1,51 @@
-<%= flash_messages %>
+<%if  current_user.admin? %>
+<%=  render partial: "admin_page.html.erb"%>
+<%else%>
 
-<h2>Todolists List</h2>
-<div class="todolist-block">
-  <table class="table table-striped table-bordered table-hover">
-    <thead>
-      <tr>
-        <th class="col-md-2">Name</th>
-        <th class="col-md-2">Price</th>
-        <th class="col-md-2">Creator</th>
-        <th class="col-md-4">Options</th>
-      </tr>
-    </thead>
+  <%= flash_messages %>
 
-    <tbody>
-      <% @todolists.each do |todolist| %>
+  <h2>User Todolists List </h2>
+  <div class="todolist-block">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
         <tr>
-          <td class="col-md-2"><%= todolist.name %></td>
-          <td></td>
-          <td class="col-md-2"><%= todolist.user.try(:email) %></td>
-          <td class="col-md-4">
-            <%= link_to 'Show', todolist_path(todolist), class: "btn btn-info" %>
-            <%= link_to 'Edit', edit_todolist_path(todolist), class: "btn  btn-warning" %>
-            <%= link_to 'Destroy', todolist_path(todolist), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-          </td>
+          <th class="col-md-2">Status</th>
+          <th class="col-md-2"><%= current_user.username%></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
 
-<br>
+      <tbody>
+          <tr>
+            <td>New</td>
+            <%@hash_new.each do |key, value| %>
+              <%if key == current_user%>
+                <td class="col-md-2">
+                  <%= 
+                    value.each do |list| 
+                      list
+                    end
+                  %>
+                </td>
+              <%end%>
+            <%end%>
+          </tr>
+          <tr>
+            <td>In Progress</td>
+            <%@hash_inProg.each do |key, value| %>
+             <%if key == current_user%>
+                <td class="col-md-2">
+                  <%= 
+                    value.each do |list| 
+                      list
+                    end
+                  %>
+                </td>
+              <%end%>
+            <%end%>
+          </tr>
+      </tbody>
+    </table>
+  </div>
 
-<%= link_to 'New Todolist', new_todolist_path, class: "btn btn-primary" %>
+  <br>
+<%end%>

@@ -51,7 +51,9 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
+    byebug (11.0.1)
     cancancan (1.17.0)
+    chartkick (3.2.1)
     coderay (1.1.2)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
@@ -188,7 +190,9 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
+  byebug
   cancancan (~> 1.10)
+  chartkick
   coffee-rails
   devise
   jbuilder

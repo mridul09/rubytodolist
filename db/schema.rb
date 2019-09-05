@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2016_09_18_165940) do
 
   create_table "todolists", force: :cascade do |t|
     t.string "name"
-    t.float "status"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
