@@ -39,7 +39,7 @@ test:
 
 production:
   <<: *default
-  url: todolist
+  url:  <%= ENV['DATABASE_URL'] %>
 
 staging:
   <<: *default
