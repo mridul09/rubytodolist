@@ -13,6 +13,8 @@ For the Authentication i had used **Cancan Gem** which is controlling the user a
 # App Deployment
 As for the knowledege based i Had also Devployed The app in Heroku with the url (https://helooboy09.herokuapp.com/). Please have a look.
 
+## Test Cases
+I also added Some of the test Case justo insure you that Rspec can be easly implemented. u can run by rspec command.
 
 ## Graphs Gem
 
