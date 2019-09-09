@@ -19,17 +19,6 @@ As for the knowledege based i Had also Devployed The app in Heroku with the url 
 As per Request i also added **chartkick Gem** for the graphical representation . I had not used Google Carts Api as it was overhead for the UI part. The Graphs will be Visible to the 
 admin only on the index page based on the user data.
 
-## Credentials
-
-Admin -: admin@gmail.com
-password -: password1234
-
-Dev1 -: client1@gmail.com
-password -: password12345
-
-Dev1 -: client2@gmail.com
-password -: password1234
-
 And this will produce a flow chart:
 
 ```mermaid
