@@ -33,5 +33,4 @@ group :development do
   gem 'web-console'
   gem 'spring'
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
 end

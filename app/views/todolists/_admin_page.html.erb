@@ -35,6 +35,18 @@
               </td>
             <%end%>
           </tr>
+          <tr>
+              <td>Done</td>
+              <%@hash_Done.each do |key, value| %>
+                <td class="col-md-2">
+                  <%= 
+                    value.each do |list| 
+                      list
+                    end
+                  %>
+                </td>
+              <%end%>
+            </tr>
       </tbody>
     </table>
   </div>
