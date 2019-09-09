@@ -36,3 +36,16 @@ end
 								status: 'InProgress',
 								 user: user3)
 end
+
+
+
+1.upto(5) do |i|
+	Todolist.create(name: "monitor #{i}",
+								status: 'Done',
+								 user: user2)
+end
+1.upto(5) do |i|
+	Todolist.create(name: "monitor #{i}",
+								status: 'Done',
+								 user: user3)
+end

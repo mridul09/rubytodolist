@@ -8,10 +8,19 @@
 		</div>
 	</div>
 	
-	<%if !current_user.nil? && current_user.has_role?(:admin) %>
-		<h1>Charts on based on projects</h1>
-		<%= pie_chart Todolist.group(:status).count %>
-		<h1>Charts on based on developer</h1>
-		<%= column_chart Todolist.joins(:user).group(:username).count %>
-	<%end%>
+	<div class="row" style="margin-top:150px">
+		
+		<%if !current_user.nil? && current_user.has_role?(:admin) %>
+			<div class="col-md-6">
+				<h1>Charts on based on projects</h1>
+				<%= pie_chart Todolist.group(:status).count %>
+			</div>
+			
+			<div class="col-md-6">
+				<h1>Charts on based on developer</h1>
+				<%= column_chart Todolist.joins(:user).group(:username).count %>
+			</div>
+		<%end%>
+	
+	</div>
 </div>

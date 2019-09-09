@@ -15,6 +15,7 @@ class TodolistsController < ApplicationController
       else
         @hash_new[key] = key.todolists.collect{|i| i.status == 'New'? i.name : [] }.flatten
         @hash_inProg[key] = key.todolists.collect{|i| i.status == 'InProgress'? i.name : [] }.flatten
+        @hash_Done[key] = key.todolists.collect{|i| i.status == 'Done'? i.name : [] }.flatten
       end
     end
   end

@@ -43,6 +43,20 @@
               <%end%>
             <%end%>
           </tr>
+          <tr>
+              <td>Done</td>
+              <%@hash_Done.each do |key, value| %>
+              <%if key == current_user%>
+                  <td class="col-md-2">
+                    <%= 
+                      value.each do |list| 
+                        list
+                      end
+                    %>
+                  </td>
+                <%end%>
+              <%end%>
+            </tr>
       </tbody>
     </table>
   </div>
